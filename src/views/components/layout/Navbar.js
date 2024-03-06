@@ -18,6 +18,7 @@ export const Navbar = () => {
               alt="user"
             />
           </div>
+          <div></div>
           <div className="ml-auto mr-14">
             <ul className="flex space-x-7">
               <li className="cursor-pointer"> About Us</li>
