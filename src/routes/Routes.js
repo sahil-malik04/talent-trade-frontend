@@ -1,13 +1,17 @@
 import { useRoutes } from "react-router-dom";
 import { Home } from "../views/Home";
 import { Login } from "../views/auth/Login";
-import { CreateAccount } from "../views/auth/CreateAccount";
+import { CreateAccountOptions } from "../views/auth/CreateAccount/CreateAccountOptions";
+import { CreateAsStudentS1 } from "../views/auth/CreateAccount/student/CreateAsStudentS1";
+import { CreateAsStudentS2 } from "../views/auth/CreateAccount/student/CreateAsStudentS2";
 
 export const Router = () => {
   const routesArray = [
     { path: "/", element: <Home /> },
     { path: "/login", element: <Login /> },
-    { path: "/create-account", element: <CreateAccount /> },
+    { path: "/create-account", element: <CreateAccountOptions /> },
+    { path: "/create-as-student-s1", element: <CreateAsStudentS1 /> },
+    { path: "/create-as-student-s2", element: <CreateAsStudentS2 /> },
   ];
   const routes = useRoutes(routesArray);
 
