@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
-
+import { useState } from "react";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { ThemeBtn } from "../../../components/ThemeButton";
+import { InstructorForm1 } from "./InstructorForm1";
+import { InstructorForm2 } from "./InstructorForm2";
 
 export const CreateAsInstructor = () => {
+  const [currentStep, setCurrentStep] = useState(1);
   return (
     <>
       <div className="h-screen flex justify-evenly mt-12">
@@ -18,74 +22,39 @@ export const CreateAsInstructor = () => {
             <h2 className="text-md text-center font-bold">
               The art of teaching is the art of assisting discovery
             </h2>
-            <div className="px-8 pt-14 pb-12 mb-4">
-              <div className="grid grid-rows-1 grid-flow-col gap-4 mb-5">
-                <div className="row-start-1">
-                  <label
-                    className="block text-gray-700 text-sm font-bold mb-2"
-                    htmlFor="first_name"
-                  >
-                    First Name
-                  </label>
-                  <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="first_name"
-                    type="text"
-                  />
-                </div>
-                <div className="row-start-1">
-                  <label
-                    className="block text-gray-700 text-sm font-bold mb-2"
-                    htmlFor="last_name"
-                  >
-                    Last Name
-                  </label>
-                  <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="last_name"
-                    type="text"
-                  />
-                </div>
-              </div>
+            {currentStep === 2 && (
+              <span
+                className="cursor-pointer ml-1"
+                onClick={() => setCurrentStep(1)}
+              >
+                <ArrowBackIcon style={{ color: "#016795" }} />
+              </span>
+            )}
 
-              <div className="mb-8">
-                <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                  htmlFor="email"
-                >
-                  Email
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="email"
-                  type="text"
+            <div className="px-8 pt-14 pb-12 mb-4">
+              {currentStep === 1 ? <InstructorForm1 /> : <InstructorForm2 />}
+
+              {currentStep === 1 && (
+                <div className="text-right">
+                  <span className="text-sm">Already have an account?</span>
+                  <Link
+                    className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 ml-1 cursor-pointer"
+                    to={"/login"}
+                  >
+                    Sign in
+                  </Link>
+                </div>
+              )}
+
+              <div className="text-center mt-5" style={{marginTop: currentStep === 2 && "50px"}}>
+                <ThemeBtn
+                  label={currentStep === 2 ? "Create Account" : "Next"}
+                  width={currentStep === 2 ? 40 : 32}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setCurrentStep(() => currentStep + 1);
+                  }}
                 />
-              </div>
-              <div className="mb-0">
-                <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                  htmlFor="password"
-                >
-                  Password
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                  id="password"
-                  type="password"
-                />
-                <p className="text-red-500 text-xs italic"></p>
-              </div>
-              <div className="text-right">
-                <span className="text-sm">Already have an account?</span>
-                <Link
-                  className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 ml-1 cursor-pointer"
-                  to={"/login"}
-                >
-                  Sign in
-                </Link>
-              </div>
-              <div className="text-center mt-5">
-                <ThemeBtn label={"Create Account"} />
               </div>
             </div>
           </form>

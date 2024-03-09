@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ThemeBtn } from "../components/ThemeButton";
 
 export const Login = () => {
@@ -39,12 +39,12 @@ export const Login = () => {
                 <p className="text-red-500 text-xs italic"></p>
               </div>
               <div className="text-right">
-                <a
-                  className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 "
-                  href="#"
+                <Link
+                  className="inline-block align-baseline font-bold text-sm text-peacockblue-100"
+                  to=""
                 >
                   Forgot Password?
-                </a>
+                </Link>
               </div>
               <div className="text-center mt-2">
                 <ThemeBtn label={"Sign In"} />

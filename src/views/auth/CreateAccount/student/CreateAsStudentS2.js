@@ -2,27 +2,8 @@ import { useState } from "react";
 import Select from "react-select";
 import { ThemeBtn } from "../../../components/ThemeButton";
 import CheckoutStepper from "./CheckoutStepper";
+import { branchOptions, industryOptions } from "../../../../utils/dataUtility";
 
-const industryOptions = [
-  { value: "DM", label: "Digital Marketing" },
-  { value: "IT", label: "IT" },
-  { value: "soft-skills", label: "Soft skills" },
-  { value: "finance", label: "Finance" },
-  { value: "accounting", label: "Accounting" },
-];
-
-const branchOptions = [
-  { value: "accounting", label: "C" },
-  { value: "accounting", label: "C++" },
-  { value: "DM", label: "CSS" },
-  { value: "IT", label: "Javascript" },
-  { value: "soft-skills", label: "React" },
-  { value: "finance", label: "Angular" },
-  { value: "accounting", label: "MySQL" },
-  { value: "accounting", label: "HTML" },
-  { value: "accounting", label: "PHP" },
-  { value: "accounting", label: "Python" },
-];
 const timeOptions = [];
 for (let hour = 0; hour < 24; hour++) {
   let hourString = hour.toString().padStart(2, "0");
@@ -33,7 +14,7 @@ export const CreateAsStudentS2 = () => {
   const [isCompleted, setIsCompleted] = useState(false);
   return (
     <>
-      <div className="student-banner h-screen">
+      <div className="student-banner h-screen pt-2">
         <CheckoutStepper step={2} isCompleted={isCompleted} />
         <form className="bg-white shadow-md rounded w-5/12 ml-auto mr-auto mt-6 pt-4 pb-10">
           <h2 className="text-md text-center font-bold">
