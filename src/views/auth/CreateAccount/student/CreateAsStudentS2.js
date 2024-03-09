@@ -72,7 +72,7 @@ export const CreateAsStudentS2 = () => {
                   name="preferred_style"
                   value="one-on-one"
                 />
-                <label for="one-on-one" className="mr-4 ml-1">
+                <label htmlFor="one-on-one" className="mr-4 ml-1">
                   One-on-one session
                 </label>
 
@@ -82,7 +82,7 @@ export const CreateAsStudentS2 = () => {
                   name="preferred_style"
                   value="group-classes"
                 />
-                <label for="group-classes" className="ml-1">
+                <label htmlFor="group-classes" className="ml-1">
                   Group classes
                 </label>
               </div>

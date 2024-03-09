@@ -14,11 +14,11 @@ export const Navbar = () => {
     <>
       <nav className="bg-peacockblue-100 p-5 text-white font-bold">
         <div className="flex">
-          <div className="ml-4" onClick={()=> navigate("/")}>
+          <div className="ml-4" onClick={() => navigate("/")}>
             <img
               className="h-8 w-14 rounded-full cursor-pointer"
               src="/assets/images/brand_logo.png"
-              alt="user"
+              alt="brand-logo"
             />
           </div>
           <div className="ml-auto mr-14">

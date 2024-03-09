@@ -1,17 +1,17 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { ThemeBtn } from "../../../components/ThemeButton";
 
 export const CreateAsInstructor = () => {
-  const navigate = useNavigate();
   return (
     <>
       <div className="h-screen flex justify-evenly mt-12">
         <div className="mr-14">
-        <img
-          src="/assets/images/teacher_banner.png"
-          style={{ height: "28rem" }}
-        />
+          <img
+            src="/assets/images/teacher_banner.png"
+            style={{ height: "28rem" }}
+            alt="teacher-banner"
+          />
         </div>
         <div>
           <form className="bg-white shadow-md rounded w-full ml-auto mt-6">
@@ -85,8 +85,8 @@ export const CreateAsInstructor = () => {
                 </Link>
               </div>
               <div className="text-center mt-5">
-              <ThemeBtn label={"Create Account"} />
-            </div>
+                <ThemeBtn label={"Create Account"} />
+              </div>
             </div>
           </form>
         </div>
