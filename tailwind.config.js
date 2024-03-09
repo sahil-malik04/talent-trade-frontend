@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         peacockblue: {
           100: "#016795",
+          200: "#0f6f9f",
         },
       },
     },

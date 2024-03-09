@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import SchoolIcon from "@mui/icons-material/School";
 
 export const CreateAccountOptions = () => {
   const navigate = useNavigate();
@@ -6,11 +7,23 @@ export const CreateAccountOptions = () => {
   return (
     <>
       <div className="flex justify-center space-x-12 mt-16">
-        <div className="w-52 h-64 border-4 border-gray-400 cursor-pointer" onClick={()=> navigate("/create-as-student-s1")}>
-          Register as a Student{" "}
+        <div
+          className="w-52 h-64 border-4 border-gray-400 cursor-pointer text-slate-900 hover:bg-peacockblue-200 hover:text-white transition-all duration-200"
+          onClick={() => navigate("/create-as-student-s1")}
+        >
+          <div className="text-center mt-12">
+            <SchoolIcon style={{ fontSize: "50px" }} />
+          </div>
+          <h4 className="text-center mt-8">Register as a Student</h4>
         </div>
-        <div className="w-52 h-64 border-4 border-gray-400 cursor-pointer">
-          Register as a Instructor
+        <div
+          className="w-52 h-64 border-4 border-gray-400 cursor-pointer text-slate-900 hover:bg-peacockblue-200 hover:text-white transition-all duration-200"
+          onClick={() => navigate("/create-as-instructor")}
+        >
+          <div className="text-center mt-12">
+            <SchoolIcon style={{ fontSize: "50px" }} />
+          </div>
+          <h4 className="text-center mt-8">Register as a Instructor</h4>
         </div>
       </div>
     </>

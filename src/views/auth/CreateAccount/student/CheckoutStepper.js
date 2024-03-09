@@ -14,18 +14,18 @@ const CheckoutStepper = ({ step, isCompleted }) => {
           return (
             <div
               key={item}
-              className={`step ${
+              className={`step  ${
                 step > index + 1 || isCompleted ? "complete" : ""
               } ${step === index + 1 ? "active" : ""}`}
             >
-              <div className="step-number">
+              <div className="step-number font-bold">
                 {step > index + 1 || isCompleted ? (
                   <span> &#10003;</span>
                 ) : (
                   index + 1
                 )}
               </div>
-              <div className="">{item} </div>
+              <div className="text-slate-100 font-bold">{item} </div>
             </div>
           );
         })}

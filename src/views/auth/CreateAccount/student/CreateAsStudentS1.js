@@ -5,7 +5,7 @@ import { ThemeBtn } from "../../../components/ThemeButton";
 export const CreateAsStudentS1 = () => {
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="student-banner h-screen">
       <CheckoutStepper step={1} />
       <form className="bg-white shadow-md rounded w-5/12 ml-auto mr-auto mt-6">
         <h2 className="text-md text-center font-bold">
@@ -73,7 +73,7 @@ export const CreateAsStudentS1 = () => {
             <span className="text-sm">Already have an account?</span>
             <Link
               className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 ml-1 cursor-pointer"
-              to={" /login"}
+              to={"/login"}
             >
               Sign in
             </Link>

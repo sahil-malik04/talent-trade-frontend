@@ -15,7 +15,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #5aa6cc;
+  background: #0f6f9f;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,4 +31,8 @@
 .complete .step-number{
     background-color: #68b7de;
     color: #fff;
+}
+
+.student-banner{
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../public/assets/images/open-book.jpg");
 }
