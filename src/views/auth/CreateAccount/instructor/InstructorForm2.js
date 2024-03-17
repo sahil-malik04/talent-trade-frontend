@@ -14,7 +14,7 @@ export const InstructorForm2 = () => {
           <div className="row-start-1">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="Gender"
+              htmlFor="gender"
             >
               Gender
             </label>

@@ -1,14 +1,28 @@
 import { Link, useNavigate } from "react-router-dom";
 import { ThemeBtn } from "../components/ThemeButton";
+import { useFormik } from "formik";
+import { LoginFormValidation } from "./LoginFormValidation";
 
 export const Login = () => {
   const navigate = useNavigate();
+  const { handleSubmit, handleChange, values, errors } = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: LoginFormValidation,
+
+    onSubmit: (values) => {
+      // console.log(values, "value");
+    },
+  });
+
   return (
     <>
       <div className="h-screen flex justify-between bg-peacockblue-100">
         <div className="mt-32"></div>
         <div className="w-full max-w-sm mr-16 mt-32">
-          <form className="bg-white shadow-md rounded ">
+          <form className="bg-white shadow-md rounded" onSubmit={handleSubmit}>
             <h2 className="text-md text-center font-bold"> Login here</h2>
             <div className="px-8 pt-14 pb-12 mb-4">
               <div className="mb-8">
@@ -22,9 +36,12 @@ export const Login = () => {
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="email"
                   type="text"
+                  onChange={handleChange}
+                  value={values.email}
                 />
+                <p className="text-red-500 text-sm mb-2">{errors.email}</p>
               </div>
-              <div className="mb-0">
+              <div className="mb-3">
                 <label
                   className="block text-gray-700 text-sm font-bold mb-2"
                   htmlFor="password"
@@ -32,11 +49,13 @@ export const Login = () => {
                   Password
                 </label>
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700  leading-tight focus:outline-none focus:shadow-outline"
                   id="password"
                   type="password"
+                  onChange={handleChange}
+                  value={values.password}
                 />
-                <p className="text-red-500 text-xs italic"></p>
+                <p className="text-red-500 text-sm mb-2">{errors.password}</p>
               </div>
               <div className="text-right">
                 <Link
