@@ -2,6 +2,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { ThemeBtn } from "../components/ThemeButton";
 import { useFormik } from "formik";
 import { LoginFormValidation } from "./LoginFormValidation";
+import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { encryptPassword } from "../../utils/commonFunc";
+
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -12,8 +17,21 @@ export const Login = () => {
     },
     validationSchema: LoginFormValidation,
 
-    onSubmit: (values) => {
-      // console.log(values, "value");
+    onSubmit: async (values) => {
+      try {
+        const URL = "/auth/student/sign-in";
+        const encryptedPassword = encryptPassword(values?.password);
+        const body = {
+          email: values?.email,
+          password: encryptedPassword,
+        };
+        const result = await axios.post(URL, body);
+        if (result?.status === 200) {
+          toast.success(result?.data?.message);
+        }
+      } catch (err) {
+        toast.error(err?.response?.data?.message);
+      }
     },
   });
 
