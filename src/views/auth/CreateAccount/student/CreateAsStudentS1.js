@@ -1,13 +1,13 @@
-import { Link, useNavigate } from "react-router-dom";
-import CheckoutStepper from "./CheckoutStepper";
+import { Link } from "react-router-dom";
 import { ThemeBtn } from "../../../components/ThemeButton";
 
-export const CreateAsStudentS1 = () => {
-  const navigate = useNavigate();
+export const CreateAsStudentS1 = ({ handleSubmit, handleChange, values }) => {
   return (
-    <div className="student-banner h-screen pt-2">
-      <CheckoutStepper step={1} />
-      <form className="bg-white shadow-md rounded w-5/12 ml-auto mr-auto mt-6">
+    <form
+      className=" rounded w-5/12 ml-auto mr-auto mt-6"
+      onSubmit={handleSubmit}
+    >
+      <div className="bg-white shadow-md">
         <h2 className="text-md text-center font-bold">
           {" "}
           Fill your details below
@@ -17,27 +17,31 @@ export const CreateAsStudentS1 = () => {
             <div className="row-start-1">
               <label
                 className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="first_name"
+                htmlFor="firtName"
               >
                 First Name
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="first_name"
+                id="firtName"
                 type="text"
+                value={values?.firtName}
+                onChange={handleChange}
               />
             </div>
             <div className="row-start-1">
               <label
                 className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="last_name"
+                htmlFor="lastName"
               >
                 Last Name
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="last_name"
+                id="lastName"
                 type="text"
+                value={values?.lastName}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -53,6 +57,8 @@ export const CreateAsStudentS1 = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="email"
               type="text"
+              value={values?.email}
+              onChange={handleChange}
             />
           </div>
           <div className="mb-0">
@@ -66,9 +72,12 @@ export const CreateAsStudentS1 = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               id="password"
               type="password"
+              value={values?.password}
+              onChange={handleChange}
             />
             <p className="text-red-500 text-xs italic"></p>
           </div>
+
           <div className="text-right">
             <span className="text-sm">Already have an account?</span>
             <Link
@@ -79,15 +88,10 @@ export const CreateAsStudentS1 = () => {
             </Link>
           </div>
         </div>
-      </form>
-
-      <div className="text-center mt-2">
-        <ThemeBtn
-          label={"Next"}
-          width={32}
-          onClick={() => navigate("/create-as-student-s2")}
-        />
       </div>
-    </div>
+      <div className="text-center mt-2">
+        <ThemeBtn label={"Next"} width={32} />
+      </div>
+    </form>
   );
 };

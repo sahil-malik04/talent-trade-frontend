@@ -1,7 +1,5 @@
-import { useState } from "react";
 import Select from "react-select";
 import { ThemeBtn } from "../../../components/ThemeButton";
-import CheckoutStepper from "./CheckoutStepper";
 import { branchOptions, industryOptions } from "../../../../utils/dataUtility";
 
 const timeOptions = [];
@@ -10,17 +8,25 @@ for (let hour = 0; hour < 24; hour++) {
   timeOptions.push({ value: hourString + ":00", label: hourString + ":00" });
 }
 
-export const CreateAsStudentS2 = () => {
-  const [isCompleted, setIsCompleted] = useState(false);
+export const CreateAsStudentS2 = ({
+  setIsCompleted,
+  handleSubmit,
+  handleChange,
+  values,
+  errors,
+}) => {
   return (
     <>
-      <div className="student-banner h-screen pt-2">
-        <CheckoutStepper step={2} isCompleted={isCompleted} />
-        <form className="bg-white shadow-md rounded w-5/12 ml-auto mr-auto mt-6 pt-4 pb-10">
+      <form
+        className="rounded w-5/12 ml-auto mr-auto mt-6 pt-4 pb-10"
+        onSubmit={handleSubmit}
+      >
+        <div className="bg-white shadow-md">
           <h2 className="text-md text-center font-bold">
             {" "}
             What areas of expertise are you currently focused on?
           </h2>
+          {console.log(values, "valu")}
           <div className="px-8 pt-12 pb-12 mb-4">
             <div className="grid grid-rows-1 grid-flow-col gap-4 mb-5">
               <div className="row-start-1">
@@ -28,6 +34,17 @@ export const CreateAsStudentS2 = () => {
                   options={industryOptions}
                   isMulti
                   placeholder={"Choose Industry"}
+                  id="industry"
+                  name="industry"
+                  value={values.industry}
+                  onChange={(selectedOption) => {
+                    handleChange({
+                      target: {
+                        name: "industry",
+                        value: selectedOption,
+                      },
+                    });
+                  }}
                 />
               </div>
             </div>
@@ -37,6 +54,17 @@ export const CreateAsStudentS2 = () => {
                   options={branchOptions}
                   isMulti
                   placeholder={"Choose Branch"}
+                  id="branch"
+                  name="branch"
+                  value={values.branch}
+                  onChange={(selectedOption) => {
+                    handleChange({
+                      target: {
+                        name: "branch",
+                        value: selectedOption,
+                      },
+                    });
+                  }}
                 />
               </div>
             </div>
@@ -50,8 +78,10 @@ export const CreateAsStudentS2 = () => {
                 <input
                   type="radio"
                   id="one-on-one"
-                  name="preferred_style"
-                  value="one-on-one"
+                  name="preferredLearning"
+                  value="1"
+                  checked={values.preferredLearning === "1"}
+                  onChange={handleChange}
                 />
                 <label htmlFor="one-on-one" className="mr-4 ml-1">
                   One-on-one session
@@ -60,8 +90,10 @@ export const CreateAsStudentS2 = () => {
                 <input
                   type="radio"
                   id="group-classes"
-                  name="preferred_style"
-                  value="group-classes"
+                  name="preferredLearning"
+                  value="2"
+                  checked={values.preferredLearning === "2"}
+                  onChange={handleChange}
                 />
                 <label htmlFor="group-classes" className="ml-1">
                   Group classes
@@ -77,17 +109,44 @@ export const CreateAsStudentS2 = () => {
               <div className="col-span-8">
                 <div className="grid grid-cols-12 gap-4 ">
                   <div className="col-span-6">
-                    <Select options={timeOptions} placeholder={"From"} />
+                    <Select
+                      options={timeOptions}
+                      placeholder={"From"}
+                      id="from"
+                      name="from"
+                      value={values.from}
+                      onChange={(selectedOption) => {
+                        handleChange({
+                          target: {
+                            name: "from",
+                            value: selectedOption,
+                          },
+                        });
+                      }}
+                    />
                   </div>
                   <div className="col-span-6">
-                    <Select options={timeOptions} placeholder={"To"} />
+                    <Select
+                      options={timeOptions}
+                      placeholder={"To"}
+                      id="to"
+                      name="to"
+                      value={values.to}
+                      onChange={(selectedOption) => {
+                        handleChange({
+                          target: {
+                            name: "to",
+                            value: selectedOption,
+                          },
+                        });
+                      }}
+                    />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </form>
-
+        </div>
         <div className="text-center mt-2">
           <ThemeBtn
             label={"Finish"}
@@ -95,7 +154,7 @@ export const CreateAsStudentS2 = () => {
             onClick={() => setIsCompleted(true)}
           />
         </div>
-      </div>
+      </form>
     </>
   );
 };

@@ -9,7 +9,7 @@ export const CreateAccountOptions = () => {
       <div className="flex justify-center space-x-12 mt-16">
         <div
           className="w-52 h-64 border-4 border-gray-400 cursor-pointer text-slate-900 hover:bg-peacockblue-200 hover:text-white transition-all duration-200"
-          onClick={() => navigate("/create-as-student-s1")}
+          onClick={() => navigate("/create-as-student")}
         >
           <div className="text-center mt-12">
             <SchoolIcon style={{ fontSize: "50px" }} />
