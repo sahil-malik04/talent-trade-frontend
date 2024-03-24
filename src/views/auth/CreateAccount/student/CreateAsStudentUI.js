@@ -14,8 +14,8 @@ const CreateAsStudentUI = () => {
   const initialValues = {
     firstName: "",
     lastName: "",
-    stuEmail: "",
-    stuPassword: "",
+    stEmail: "",
+    stPassword: "",
     industry: [],
     branch: [],
     preferredLearning: "1",
@@ -45,8 +45,8 @@ const CreateAsStudentUI = () => {
           const data = {
             firstName: values?.firstName,
             lastName: values?.lastName,
-            email: values?.email,
-            password: values?.password,
+            email: values?.stEmail,
+            password: values?.stPassword,
             industry: selectedIndustry,
             branch: selectedBranch,
             preferredLearning: values?.preferredLearning,

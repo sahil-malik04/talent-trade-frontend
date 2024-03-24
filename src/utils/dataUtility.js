@@ -20,6 +20,7 @@ export const industryOptions = [
 ];
 
 export const genderOptions = [
-  { value: "M", label: "Male" },
-  { value: "F", label: "Female" },
+  { value: "1", label: "Male" },
+  { value: "2", label: "Female" },
+  { value: "3", label: "Other" },
 ];

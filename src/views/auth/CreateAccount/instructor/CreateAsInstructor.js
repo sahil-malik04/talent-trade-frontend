@@ -4,9 +4,65 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { ThemeBtn } from "../../../components/ThemeButton";
 import { InstructorForm1 } from "./InstructorForm1";
 import { InstructorForm2 } from "./InstructorForm2";
+import { useFormik } from "formik";
+import { getSelectedValue } from "../../../../utils/commonFunc";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { instructorSignupSchema } from "../CreateAccountValidations";
 
 export const CreateAsInstructor = () => {
   const [currentStep, setCurrentStep] = useState(1);
+
+  const initialValues = {
+    firstName: "",
+    lastName: "",
+    insEmail: "",
+    insPassword: "",
+    gender: { value: "1", label: "Male" },
+    YOE: "",
+    industry: [],
+    AOE: [],
+  };
+
+  const {
+    values,
+    handleChange: handleFieldChange,
+    handleSubmit,
+    errors,
+  } = useFormik({
+    initialValues: initialValues,
+    validationSchema: instructorSignupSchema(currentStep),
+    onSubmit: async (values) => {
+      if (currentStep === 1) {
+        setCurrentStep(() => currentStep + 1);
+      }
+
+      if (currentStep === 2) {
+        try {
+          const URL = "/auth/instructor-sign-up";
+          const selectedIndustry = getSelectedValue(values?.industry);
+          const AOE = getSelectedValue(values?.AOE);
+
+          const data = {
+            firstName: values?.firstName,
+            lastName: values?.lastName,
+            email: values?.insEmail,
+            password: values?.insPassword,
+            gender: values?.gender?.value,
+            YOE: values?.YOE,
+            industry: selectedIndustry,
+            AOE: AOE,
+          };
+          const result = await axios.post(URL, data);
+          if (result?.status === 200) {
+            toast.success(result?.data?.message);
+          }
+        } catch (err) {
+          toast.error(err?.response?.data?.message);
+        }
+      }
+    },
+  });
   return (
     <>
       <div className="h-screen flex justify-evenly mt-12">
@@ -18,7 +74,10 @@ export const CreateAsInstructor = () => {
           />
         </div>
         <div>
-          <form className="bg-white shadow-md rounded w-full ml-auto mt-6">
+          <form
+            className="bg-white shadow-md rounded w-full ml-auto mt-6"
+            onSubmit={handleSubmit}
+          >
             <h2 className="text-md text-center font-bold">
               The art of teaching is the art of assisting discovery
             </h2>
@@ -32,7 +91,19 @@ export const CreateAsInstructor = () => {
             )}
 
             <div className="px-8 pt-14 pb-12 mb-4">
-              {currentStep === 1 ? <InstructorForm1 /> : <InstructorForm2 />}
+              {currentStep === 1 ? (
+                <InstructorForm1
+                  handleChange={handleFieldChange}
+                  values={values}
+                  errors={errors}
+                />
+              ) : (
+                <InstructorForm2
+                  handleChange={handleFieldChange}
+                  values={values}
+                  errors={errors}
+                />
+              )}
 
               {currentStep === 1 && (
                 <div className="text-right">
@@ -46,14 +117,13 @@ export const CreateAsInstructor = () => {
                 </div>
               )}
 
-              <div className="text-center mt-5" style={{marginTop: currentStep === 2 && "50px"}}>
+              <div
+                className="text-center mt-5"
+                style={{ marginTop: currentStep === 2 && "50px" }}
+              >
                 <ThemeBtn
                   label={currentStep === 2 ? "Create Account" : "Next"}
                   width={currentStep === 2 ? 40 : 32}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setCurrentStep(() => currentStep + 1);
-                  }}
                 />
               </div>
             </div>

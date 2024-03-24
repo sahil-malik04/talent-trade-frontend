@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ThemeBtn } from "../../../components/ThemeButton";
+import { GetError } from "../../../../utils/commonFunc";
 
 export const CreateAsStudentS1 = ({
   handleSubmit,
@@ -33,7 +34,7 @@ export const CreateAsStudentS1 = ({
                 value={values?.firtName}
                 onChange={handleChange}
               />
-              <p className="text-red-500 text-xs italic">{errors?.firstName}</p>
+              <GetError value={errors?.firstName} />
             </div>
             <div className="row-start-1">
               <label
@@ -55,34 +56,34 @@ export const CreateAsStudentS1 = ({
           <div className="mb-8">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="stuEmail"
+              htmlFor="stEmail"
             >
               Email
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="stuEmail"
+              id="stEmail"
               type="text"
-              value={values?.stuEmail}
+              value={values?.stEmail}
               onChange={handleChange}
             />
-            <p className="text-red-500 text-xs italic">{errors?.stuEmail}</p>
+            <GetError value={errors?.stEmail} />
           </div>
           <div className="mb-0">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="stuPassword"
+              htmlFor="stPassword"
             >
               Password
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-              id="stuPassword"
+              id="stPassword"
               type="password"
-              value={values?.stuPassword}
+              value={values?.stPassword}
               onChange={handleChange}
             />
-            <p className="text-red-500 text-xs italic">{errors?.stuPassword}</p>
+            <GetError value={errors?.stPassword} />
           </div>
 
           <div className="text-right">

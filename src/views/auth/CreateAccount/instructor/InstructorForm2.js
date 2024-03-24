@@ -5,8 +5,9 @@ import {
   genderOptions,
   industryOptions,
 } from "../../../../utils/dataUtility";
+import { GetError } from "../../../../utils/commonFunc";
 
-export const InstructorForm2 = () => {
+export const InstructorForm2 = ({ handleChange, values, errors }) => {
   return (
     <>
       <div>
@@ -22,20 +23,32 @@ export const InstructorForm2 = () => {
               options={genderOptions}
               defaultValue={genderOptions[0]}
               className="w-48"
+              onChange={(selectedOption) => {
+                handleChange({
+                  target: {
+                    name: "gender",
+                    value: selectedOption,
+                  },
+                });
+              }}
             />
+            <GetError value={errors?.gender} />
           </div>
           <div className="row-start-1">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="exp"
+              htmlFor="YOE"
             >
               Years of experience
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="exp"
+              id="YOE"
               type="text"
+              onChange={handleChange}
+              value={values?.YOE}
             />
+            <GetError value={errors?.YOE} />
           </div>
         </div>
 
@@ -43,15 +56,33 @@ export const InstructorForm2 = () => {
           <Select
             options={industryOptions}
             isMulti
-            placeholder={"Choose your industry "}
+            placeholder={"Choose your industry"}
+            onChange={(selectedOption) => {
+              handleChange({
+                target: {
+                  name: "industry",
+                  value: selectedOption,
+                },
+              });
+            }}
           />
+          <GetError value={errors?.industry} />
         </div>
         <div className="mb-5">
           <Select
             options={branchOptions}
             isMulti
-            placeholder={"Select your expertise "}
+            placeholder={"Select your expertise"}
+            onChange={(selectedOption) => {
+              handleChange({
+                target: {
+                  name: "AOE",
+                  value: selectedOption,
+                },
+              });
+            }}
           />
+          <GetError value={errors?.AOE} />
         </div>
       </div>
     </>

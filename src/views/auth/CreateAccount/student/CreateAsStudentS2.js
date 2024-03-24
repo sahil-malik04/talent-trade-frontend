@@ -1,6 +1,7 @@
 import Select from "react-select";
 import { ThemeBtn } from "../../../components/ThemeButton";
 import { branchOptions, industryOptions } from "../../../../utils/dataUtility";
+import { GetError } from "../../../../utils/commonFunc";
 
 const timeOptions = [];
 for (let hour = 0; hour < 24; hour++) {
@@ -45,9 +46,7 @@ export const CreateAsStudentS2 = ({
                     });
                   }}
                 />
-                <p className="text-red-500 text-xs italic">
-                  {errors?.industry}
-                </p>
+                <GetError value={errors?.industry} />
               </div>
             </div>
             <div className="grid grid-rows-1 grid-flow-col gap-4 mb-6">
@@ -68,7 +67,7 @@ export const CreateAsStudentS2 = ({
                     });
                   }}
                 />
-                <p className="text-red-500 text-xs italic">{errors?.branch}</p>
+                <GetError value={errors?.branch} />
               </div>
             </div>
             <div className="grid grid-cols-12 mb-6">
@@ -102,9 +101,7 @@ export const CreateAsStudentS2 = ({
                   Group classes
                 </label>
               </div>
-              <p className="text-red-500 text-xs italic">
-                {errors?.preferredLearning}
-              </p>
+              <GetError value={errors?.preferredLearning} />
             </div>
             <div className="grid grid-cols-12 ">
               <div className="col-span-4">
@@ -151,10 +148,7 @@ export const CreateAsStudentS2 = ({
                 </div>
               </div>
             </div>
-            <p className="text-red-500 text-xs italic">
-              {" "}
-              {errors?.from ? errors?.from : errors?.to}
-            </p>
+            <GetError value={errors?.from ? errors?.from : errors?.to} />
           </div>
         </div>
         <div className="text-center mt-2">

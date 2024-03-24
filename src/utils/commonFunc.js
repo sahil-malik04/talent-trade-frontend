@@ -8,4 +8,12 @@ const encryptPassword = (password) => {
   return ciphertext;
 };
 
-export { encryptPassword };
+const getSelectedValue = (key) => {
+  return key.map((option) => option.value);
+};
+
+const GetError = ({value}) => {
+  return <p className="text-red-500 text-xs italic">{value}</p>;
+};
+
+export { encryptPassword, getSelectedValue, GetError };
