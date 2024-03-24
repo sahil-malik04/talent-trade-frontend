@@ -26,7 +26,6 @@ export const CreateAsStudentS2 = ({
             {" "}
             What areas of expertise are you currently focused on?
           </h2>
-          {console.log(values, "valu")}
           <div className="px-8 pt-12 pb-12 mb-4">
             <div className="grid grid-rows-1 grid-flow-col gap-4 mb-5">
               <div className="row-start-1">
@@ -46,6 +45,9 @@ export const CreateAsStudentS2 = ({
                     });
                   }}
                 />
+                <p className="text-red-500 text-xs italic">
+                  {errors?.industry}
+                </p>
               </div>
             </div>
             <div className="grid grid-rows-1 grid-flow-col gap-4 mb-6">
@@ -66,6 +68,7 @@ export const CreateAsStudentS2 = ({
                     });
                   }}
                 />
+                <p className="text-red-500 text-xs italic">{errors?.branch}</p>
               </div>
             </div>
             <div className="grid grid-cols-12 mb-6">
@@ -99,6 +102,9 @@ export const CreateAsStudentS2 = ({
                   Group classes
                 </label>
               </div>
+              <p className="text-red-500 text-xs italic">
+                {errors?.preferredLearning}
+              </p>
             </div>
             <div className="grid grid-cols-12 ">
               <div className="col-span-4">
@@ -145,6 +151,10 @@ export const CreateAsStudentS2 = ({
                 </div>
               </div>
             </div>
+            <p className="text-red-500 text-xs italic">
+              {" "}
+              {errors?.from ? errors?.from : errors?.to}
+            </p>
           </div>
         </div>
         <div className="text-center mt-2">

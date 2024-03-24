@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import { ThemeBtn } from "../../../components/ThemeButton";
 
-export const CreateAsStudentS1 = ({ handleSubmit, handleChange, values }) => {
+export const CreateAsStudentS1 = ({
+  handleSubmit,
+  handleChange,
+  values,
+  errors,
+}) => {
   return (
     <form
       className=" rounded w-5/12 ml-auto mr-auto mt-6"
@@ -17,17 +22,18 @@ export const CreateAsStudentS1 = ({ handleSubmit, handleChange, values }) => {
             <div className="row-start-1">
               <label
                 className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="firtName"
+                htmlFor="firstName"
               >
                 First Name
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="firtName"
+                id="firstName"
                 type="text"
                 value={values?.firtName}
                 onChange={handleChange}
               />
+              <p className="text-red-500 text-xs italic">{errors?.firstName}</p>
             </div>
             <div className="row-start-1">
               <label
@@ -49,33 +55,34 @@ export const CreateAsStudentS1 = ({ handleSubmit, handleChange, values }) => {
           <div className="mb-8">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="email"
+              htmlFor="stuEmail"
             >
               Email
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="email"
+              id="stuEmail"
               type="text"
-              value={values?.email}
+              value={values?.stuEmail}
               onChange={handleChange}
             />
+            <p className="text-red-500 text-xs italic">{errors?.stuEmail}</p>
           </div>
           <div className="mb-0">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="password"
+              htmlFor="stuPassword"
             >
               Password
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-              id="password"
+              id="stuPassword"
               type="password"
-              value={values?.password}
+              value={values?.stuPassword}
               onChange={handleChange}
             />
-            <p className="text-red-500 text-xs italic"></p>
+            <p className="text-red-500 text-xs italic">{errors?.stuPassword}</p>
           </div>
 
           <div className="text-right">

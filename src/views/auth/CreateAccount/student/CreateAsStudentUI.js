@@ -5,16 +5,17 @@ import { CreateAsStudentS2 } from "./CreateAsStudentS2";
 import { useFormik } from "formik";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { studentSignupSchema } from "../CreateAccountValidations";
 
 const CreateAsStudentUI = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isCompleted, setIsCompleted] = useState(false);
 
   const initialValues = {
-    firtName: "",
+    firstName: "",
     lastName: "",
-    email: "",
-    password: "",
+    stuEmail: "",
+    stuPassword: "",
     industry: [],
     branch: [],
     preferredLearning: "1",
@@ -29,7 +30,7 @@ const CreateAsStudentUI = () => {
     errors,
   } = useFormik({
     initialValues,
-    // validationSchema,
+    validationSchema: studentSignupSchema(currentStep),
     onSubmit: async (values) => {
       setCurrentStep(2);
       if (isCompleted) {
@@ -42,7 +43,7 @@ const CreateAsStudentUI = () => {
           const selectedBranch = values?.branch.map((option) => option.value);
 
           const data = {
-            firstName: values?.firtName,
+            firstName: values?.firstName,
             lastName: values?.lastName,
             email: values?.email,
             password: values?.password,
@@ -51,6 +52,7 @@ const CreateAsStudentUI = () => {
             preferredLearning: values?.preferredLearning,
             preferredTimeFrom: values?.from.value,
             preferredTimeTo: values?.to?.value,
+            role: 2,
           };
 
           const result = await axios.post(URL, data);
@@ -74,6 +76,7 @@ const CreateAsStudentUI = () => {
             handleSubmit={handleSubmit}
             handleChange={handleFieldChange}
             values={values}
+            errors={errors}
           />
         ) : currentStep === 2 ? (
           <CreateAsStudentS2
