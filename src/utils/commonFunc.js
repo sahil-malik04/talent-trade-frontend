@@ -13,7 +13,7 @@ const getSelectedValue = (key) => {
 };
 
 const GetError = ({value}) => {
-  return <p className="text-red-500 text-xs italic">{value}</p>;
+  return <p className="text-red-500 text-sm italic">{value}</p>;
 };
 
 export { encryptPassword, getSelectedValue, GetError };

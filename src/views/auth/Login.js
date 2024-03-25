@@ -1,12 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import { ThemeBtn } from "../components/ThemeButton";
 import { useFormik } from "formik";
-import { LoginFormValidation } from "./LoginFormValidation";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { encryptPassword } from "../../utils/commonFunc";
-
+import { GetError, encryptPassword } from "../../utils/commonFunc";
+import { loginFormSchema } from "./FieldsValidation";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -15,17 +14,17 @@ export const Login = () => {
       email: "",
       password: "",
     },
-    validationSchema: LoginFormValidation,
+    validationSchema: loginFormSchema,
 
     onSubmit: async (values) => {
       try {
-        const URL = "/auth/student/sign-in";
+        const URL = "/auth/sign-in";
         const encryptedPassword = encryptPassword(values?.password);
-        const body = {
+        const data = {
           email: values?.email,
           password: encryptedPassword,
         };
-        const result = await axios.post(URL, body);
+        const result = await axios.post(URL, data);
         if (result?.status === 200) {
           toast.success(result?.data?.message);
         }
@@ -38,8 +37,10 @@ export const Login = () => {
   return (
     <>
       <div className="h-screen flex justify-between bg-peacockblue-100">
-        <div className="mt-32"></div>
-        <div className="w-full max-w-sm mr-16 mt-32">
+        <div className="mt-32 ml-auto mr-auto">
+          <img src="/assets/images/login_banner.png" alt="login-bannerc" />
+        </div>
+        <div className="w-full max-w-sm mr-28 mt-32">
           <form className="bg-white shadow-md rounded" onSubmit={handleSubmit}>
             <h2 className="text-md text-center font-bold"> Login here</h2>
             <div className="px-8 pt-14 pb-12 mb-4">
@@ -57,7 +58,7 @@ export const Login = () => {
                   onChange={handleChange}
                   value={values.email}
                 />
-                <p className="text-red-500 text-sm mb-2">{errors.email}</p>
+                <GetError value={errors.email} />
               </div>
               <div className="mb-3">
                 <label
@@ -73,12 +74,12 @@ export const Login = () => {
                   onChange={handleChange}
                   value={values.password}
                 />
-                <p className="text-red-500 text-sm mb-2">{errors.password}</p>
+                <GetError value={errors.password} />
               </div>
               <div className="text-right">
                 <Link
                   className="inline-block align-baseline font-bold text-sm text-peacockblue-100"
-                  to=""
+                  to="/forgot-password"
                 >
                   Forgot Password?
                 </Link>
