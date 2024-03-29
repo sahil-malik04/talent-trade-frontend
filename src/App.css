@@ -23,16 +23,33 @@
   z-index: 2;
 }
 
-.active .step-number{
-    background-color: #016795;
-    color: #fff;
+.active .step-number {
+  background-color: #016795;
+  color: #fff;
 }
 
-.complete .step-number{
-    background-color: #68b7de;
-    color: #fff;
+.complete .step-number {
+  background-color: #68b7de;
+  color: #fff;
 }
 
-.student-banner{
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../public/assets/images/open-book.jpg");
+.student-banner {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
+    url("../public/assets/images/open-book.jpg");
+}
+
+.home-banner .banner {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
+    url("../public/assets/images/home_banner.png");
+  background-size: cover;
+}
+
+.footer > ul > li {
+  padding: 0.75rem;
+}
+.footer > ul > li > span:hover {
+  cursor: pointer;
+  color: #0e0d0d;
+  text-shadow: 2x 2px white;
+  transition: 0.2s;
 }
