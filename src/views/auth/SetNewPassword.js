@@ -3,7 +3,7 @@ import axios from "axios";
 import { ThemeBtn } from "../components/ThemeButton";
 import { useFormik } from "formik";
 import { setNewPasswordSchema } from "./FieldsValidation";
-import { GetError } from "../../utils/commonFunc";
+import { GetError, encryptData } from "../../utils/commonFunc";
 import { toast } from "react-toastify";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import CheckIcon from "@mui/icons-material/Check";
@@ -27,9 +27,11 @@ export const SetNewPassword = () => {
       } else {
         try {
           const URL = "/auth/set-new-password";
+          const encryptedPassword = encryptData(newPassword);
+
           const data = {
             email: getEmail,
-            newPassword: newPassword,
+            newPassword: encryptedPassword,
           };
           const result = await axios.patch(URL, data);
           if (result?.status === 200) {

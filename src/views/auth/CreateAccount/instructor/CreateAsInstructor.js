@@ -5,7 +5,7 @@ import { ThemeBtn } from "../../../components/ThemeButton";
 import { InstructorForm1 } from "./InstructorForm1";
 import { InstructorForm2 } from "./InstructorForm2";
 import { useFormik } from "formik";
-import { getSelectedValue } from "../../../../utils/commonFunc";
+import { encryptData, getSelectedValue } from "../../../../utils/commonFunc";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { instructorSignupSchema } from "../CreateAccountValidations";
@@ -42,12 +42,13 @@ export const CreateAsInstructor = () => {
           const URL = "/auth/instructor-sign-up";
           const selectedIndustry = getSelectedValue(values?.industry);
           const AOE = getSelectedValue(values?.AOE);
+          const encryptedPassword = encryptData(values?.insPassword);
 
           const data = {
             firstName: values?.firstName,
             lastName: values?.lastName,
             email: values?.insEmail,
-            password: values?.insPassword,
+            password: encryptedPassword,
             gender: values?.gender?.value,
             YOE: values?.YOE,
             industry: selectedIndustry,

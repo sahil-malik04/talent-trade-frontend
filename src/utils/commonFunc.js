@@ -1,8 +1,8 @@
 var CryptoJS = require("crypto-js");
 
-const encryptPassword = (password) => {
+const encryptData = (data) => {
   var ciphertext = CryptoJS.AES.encrypt(
-    password,
+    data,
     process.env.REACT_APP_ENCRYPT_KEY
   ).toString();
   return ciphertext;
@@ -16,4 +16,4 @@ const GetError = ({value}) => {
   return <p className="text-red-500 text-sm italic">{value}</p>;
 };
 
-export { encryptPassword, getSelectedValue, GetError };
+export { encryptData, getSelectedValue, GetError };

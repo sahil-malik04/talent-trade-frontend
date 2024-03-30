@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { studentSignupSchema } from "../CreateAccountValidations";
+import { encryptData } from "../../../../utils/commonFunc";
 
 const CreateAsStudentUI = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -41,12 +42,13 @@ const CreateAsStudentUI = () => {
             (option) => option.value
           );
           const selectedBranch = values?.branch.map((option) => option.value);
+          const encryptedPassword = encryptData(values?.stPassword);
 
           const data = {
             firstName: values?.firstName,
             lastName: values?.lastName,
             email: values?.stEmail,
-            password: values?.stPassword,
+            password: encryptedPassword,
             industry: selectedIndustry,
             branch: selectedBranch,
             preferredLearning: values?.preferredLearning,

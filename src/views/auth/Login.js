@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { GetError, encryptPassword } from "../../utils/commonFunc";
+import { GetError, encryptData } from "../../utils/commonFunc";
 import { loginFormSchema } from "./FieldsValidation";
 
 export const Login = () => {
@@ -19,7 +19,7 @@ export const Login = () => {
     onSubmit: async (values) => {
       try {
         const URL = "/auth/sign-in";
-        const encryptedPassword = encryptPassword(values?.password);
+        const encryptedPassword = encryptData(values?.password);
         const data = {
           email: values?.email,
           password: encryptedPassword,
