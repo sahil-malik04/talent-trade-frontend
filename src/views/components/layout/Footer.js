@@ -16,7 +16,7 @@ const Footer = () => {
     path !== "/set-new-password"
   )
     return (
-      <div className="bg-peacockblue-100  text-white mt-4">
+      <div className="bg-peacockblue-100  text-white mt-1">
         <div className="flex justify-around items-center h-64">
           <div className="" onClick={() => navigate("/")}>
             <img

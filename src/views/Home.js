@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { ThemeBtn } from "./components/ThemeButton";
 import { topFeatures } from "../utils/dataUtility";
+import { useSelector } from "react-redux";
 
 export const Home = () => {
   const navigate = useNavigate();
+  const isUser = useSelector((state) => state.auth.user);
 
   return (
     <>
@@ -16,9 +18,17 @@ export const Home = () => {
             </h2>
             <div className="text-center mt-12 text-lg">
               <ThemeBtn
-                label={"Create Account"}
+                label={isUser ? "Explore Talent Trade" : "Create Account"}
                 width="52"
-                onClick={() => navigate("/create-account")}
+                onClick={() =>
+                  navigate(
+                    isUser
+                      ? isUser?.role === 1
+                        ? "/dashboard/instructor"
+                        : "/dashboard/student"
+                      : "/create-account"
+                  )
+                }
               />
             </div>
           </div>
@@ -73,7 +83,7 @@ export const Home = () => {
 
       <section className="mt-16">
         <h3 className="text-center text-2xl font-bold mb-8">Meet Co-founder</h3>
-        <div class="max-w-sm ml-auto mr-auto rounded overflow-hidden">
+        <div className="max-w-sm ml-auto mr-auto rounded overflow-hidden">
           <img
             className="w-64 h-64 rounded-lg ml-auto mr-auto"
             src="/assets/images/founder.jpeg"

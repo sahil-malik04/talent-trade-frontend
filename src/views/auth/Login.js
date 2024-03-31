@@ -6,9 +6,13 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GetError, encryptData } from "../../utils/commonFunc";
 import { loginFormSchema } from "./FieldsValidation";
+import { useDispatch } from "react-redux";
+import { assignUser } from "../../store/reducers/userSlice";
 
 export const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const { handleSubmit, handleChange, values, errors } = useFormik({
     initialValues: {
       email: "",
@@ -27,6 +31,13 @@ export const Login = () => {
         const result = await axios.post(URL, data);
         if (result?.status === 200) {
           toast.success(result?.data?.message);
+          const userData = result.data?.data;
+          dispatch(assignUser(userData));
+          if (userData?.role === 1) {
+            navigate("/dashboard/instructor");
+          } else {
+            navigate("/dashboard/student");
+          }
         }
       } catch (err) {
         toast.error(err?.response?.data?.message);

@@ -53,3 +53,27 @@
   text-shadow: 2x 2px white;
   transition: 0.2s;
 }
+
+.sidebar {
+  width: 30rem;
+  max-width: 15rem;
+  height: auto;
+}
+.sidebar > ul {
+  padding: 0px 5px 5px 5px;
+}
+
+.sidebar > ul > li{
+  padding: 0.7rem;
+  background: rgb(245, 245, 245);
+  width: 100%;
+  cursor: pointer;
+}
+.sidebar > ul > li:hover{
+  background: rgb(185, 184, 184);
+}
+
+.sidebar > ul > li > span {
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

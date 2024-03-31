@@ -50,3 +50,14 @@ export const topFeatures = [
     desc: "Begin your exciting learning journey with our smart kill-matching system. Whether you want to learn a new language, explore creative hobbies, or dive into different subjects, our platform connects you with passionate instructors who personalize their teaching to fit your unique goals.",
   },
 ];
+
+export const studentSidebarOptions = [
+  {
+    id: 1,
+    title: "Dashboard",
+  },
+  {
+    id: 2,
+    title: "Instructors",
+  },
+];
