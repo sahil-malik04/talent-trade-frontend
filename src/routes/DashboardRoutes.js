@@ -1,4 +1,4 @@
-import { StudentDashboard } from "../views/student-dashboard/StudentDashboard";
+import { LearnerDashboard } from "../views/learner-dashboard/LearnerDashboard";
 
 
-export const DashboardRoutes = [{ path: "/dashboard/student", element: <StudentDashboard /> }];
+export const DashboardRoutes = [{ path: "/dashboard/learner", element: <LearnerDashboard /> }];

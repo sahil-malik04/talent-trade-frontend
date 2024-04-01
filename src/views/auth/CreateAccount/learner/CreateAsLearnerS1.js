@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ThemeBtn } from "../../../components/ThemeButton";
 import { GetError } from "../../../../utils/commonFunc";
 
-export const CreateAsStudentS1 = ({
+export const CreateAsLearnerS1 = ({
   handleSubmit,
   handleChange,
   values,

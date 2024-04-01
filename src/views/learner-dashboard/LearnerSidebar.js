@@ -1,11 +1,11 @@
 import React from "react";
-import { studentSidebarOptions } from "../../utils/dataUtility";
+import { learnerSidebarOptions } from "../../utils/dataUtility";
 
-export const StudentSidebar = ({setSelectedOption}) => {
+export const LearnerSidebar = ({setSelectedOption}) => {
   return (
     <div className="bg-peacockblue-100 sidebar">
       <ul>
-        {studentSidebarOptions?.map((item) => (
+        {learnerSidebarOptions?.map((item) => (
           <li className="mt-2 shadow-lg" key={item?.id} onClick={()=> setSelectedOption(item?.id)}>
             <span> {item?.title} </span>
           </li>

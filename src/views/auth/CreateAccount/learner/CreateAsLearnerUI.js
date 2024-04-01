@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import CheckoutStepper from "./CheckoutStepper";
-import { CreateAsStudentS1 } from "./CreateAsStudentS1";
-import { CreateAsStudentS2 } from "./CreateAsStudentS2";
+import { CreateAsLearnerS1 } from "./CreateAsLearnerS1";
+import { CreateAsLearnerS2 } from "./CreateAsLearnerS2";
 import { useFormik } from "formik";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { studentSignupSchema } from "../CreateAccountValidations";
+import { learnerSignupSchema } from "../CreateAccountValidations";
 import { encryptData } from "../../../../utils/commonFunc";
 
-const CreateAsStudentUI = () => {
+export const CreateAsLearnerUI = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isCompleted, setIsCompleted] = useState(false);
 
@@ -31,12 +31,12 @@ const CreateAsStudentUI = () => {
     errors,
   } = useFormik({
     initialValues,
-    validationSchema: studentSignupSchema(currentStep),
+    validationSchema: learnerSignupSchema(currentStep),
     onSubmit: async (values) => {
       setCurrentStep(2);
       if (isCompleted) {
         try {
-          const URL = "/auth/student-sign-up";
+          const URL = "/auth/learner-sign-up";
 
           const selectedIndustry = values?.industry.map(
             (option) => option.value
@@ -71,17 +71,17 @@ const CreateAsStudentUI = () => {
 
   return (
     <>
-      <div className="student-banner h-screen pt-2">
+      <div className="learner-banner h-screen pt-2">
         <CheckoutStepper step={currentStep} isCompleted={isCompleted} />
         {currentStep === 1 ? (
-          <CreateAsStudentS1
+          <CreateAsLearnerS1
             handleSubmit={handleSubmit}
             handleChange={handleFieldChange}
             values={values}
             errors={errors}
           />
         ) : currentStep === 2 ? (
-          <CreateAsStudentS2
+          <CreateAsLearnerS2
             setIsCompleted={setIsCompleted}
             handleSubmit={handleSubmit}
             handleChange={handleFieldChange}
@@ -95,5 +95,3 @@ const CreateAsStudentUI = () => {
     </>
   );
 };
-
-export default CreateAsStudentUI;

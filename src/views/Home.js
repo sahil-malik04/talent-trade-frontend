@@ -25,7 +25,7 @@ export const Home = () => {
                     isUser
                       ? isUser?.role === 1
                         ? "/dashboard/instructor"
-                        : "/dashboard/student"
+                        : "/dashboard/learner"
                       : "/create-account"
                   )
                 }
@@ -72,7 +72,7 @@ export const Home = () => {
             </h4>
             <p className="text-lg mt-4 shadow-sm">
               Learn or teach anything, from anywhere! The talent trade connects
-              students with teachers worldwide through easy video conference.
+              learners with instructors worldwide through easy video conference.
               Explore new skills, share your expertise, and make learning an
               adventure without leaving your home. Join us now and discover
               endless possibilities!

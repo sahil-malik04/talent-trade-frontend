@@ -33,7 +33,7 @@
   color: #fff;
 }
 
-.student-banner {
+.learner-banner {
   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
     url("../public/assets/images/open-book.jpg");
 }
@@ -63,17 +63,26 @@
   padding: 0px 5px 5px 5px;
 }
 
-.sidebar > ul > li{
+.sidebar > ul > li {
   padding: 0.7rem;
   background: rgb(245, 245, 245);
   width: 100%;
   cursor: pointer;
 }
-.sidebar > ul > li:hover{
+.sidebar > ul > li:hover {
   background: rgb(185, 184, 184);
 }
 
 .sidebar > ul > li > span {
   font-weight: bold;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.schedule-m > div {
+  background: rgb(172, 216, 237);
+  margin: 5px;
+  width: 60rem;
+  box-shadow: 2px #016795;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  padding: 10px;
 }

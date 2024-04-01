@@ -1,18 +1,21 @@
 import React, { useState } from "react";
-import { StudentSidebar } from "./StudentSidebar";
+import { LearnerSidebar } from "./LearnerSidebar";
 import InstructorsList from "./InstructorsList";
+import ScheduleMeetings from "./ScheduleMeetings";
 
-export const StudentDashboard = () => {
+export const LearnerDashboard = () => {
   const [selectedOption, setSelectedOption] = useState(1);
   return (
     <>
       <div className="flex">
-        <StudentSidebar setSelectedOption={setSelectedOption} />
+        <LearnerSidebar setSelectedOption={setSelectedOption} />
 
         {selectedOption === 1 ? (
           <div>Dashboard</div>
         ) : selectedOption === 2 ? (
           <InstructorsList />
+        ) : selectedOption === 3 ? (
+          <ScheduleMeetings />
         ) : (
           ""
         )}

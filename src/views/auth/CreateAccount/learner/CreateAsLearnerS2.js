@@ -9,7 +9,7 @@ for (let hour = 0; hour < 24; hour++) {
   timeOptions.push({ value: hourString + ":00", label: hourString + ":00" });
 }
 
-export const CreateAsStudentS2 = ({
+export const CreateAsLearnerS2 = ({
   setIsCompleted,
   handleSubmit,
   handleChange,

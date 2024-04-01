@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 
-export const studentSignupSchema = (step) =>
+export const learnerSignupSchema = (step) =>
   Yup.object({
     firstName: Yup.string().required("First Name is required"),
     stEmail: Yup.string()

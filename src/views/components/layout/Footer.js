@@ -10,7 +10,7 @@ const Footer = () => {
   if (
     path !== "/login" &&
     path !== "/create-account" &&
-    path !== "/create-as-student" &&
+    path !== "/create-as-learner" &&
     path !== "/create-as-instructor" &&
     path !== "/forgot-password" &&
     path !== "/set-new-password"

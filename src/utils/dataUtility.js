@@ -40,7 +40,7 @@ export const topFeatures = [
     id: 2,
     for: <StarsIcon fontSize='large' />,
     title: "Earn Recognition and Rewards",
-    desc: "Our platform offers a strong feedback and rating system to enhance your profile. You'll receive recognition for your outstanding teaching, gain valuable insights from student and grow professionally within our thriving educational community",
+    desc: "Our platform offers a strong feedback and rating system to enhance your profile. You'll receive recognition for your outstanding teaching, gain valuable insights from learners and grow professionally within our thriving educational community",
   },
   {
     id: 3,
@@ -51,7 +51,7 @@ export const topFeatures = [
   },
 ];
 
-export const studentSidebarOptions = [
+export const learnerSidebarOptions = [
   {
     id: 1,
     title: "Dashboard",
@@ -59,5 +59,9 @@ export const studentSidebarOptions = [
   {
     id: 2,
     title: "Instructors",
+  },
+  {
+    id: 3,
+    title: "Schedule Meetings",
   },
 ];
