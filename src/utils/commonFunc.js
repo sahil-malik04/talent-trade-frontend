@@ -12,8 +12,13 @@ const getSelectedValue = (key) => {
   return key.map((option) => option.value);
 };
 
-const GetError = ({value}) => {
+const GetError = ({ value }) => {
   return <p className="text-red-500 text-sm italic">{value}</p>;
 };
 
-export { encryptData, getSelectedValue, GetError };
+const formatDate = (item) => {
+  const date = new Date(item);
+  return date.toLocaleString();
+};
+
+export { encryptData, getSelectedValue, GetError, formatDate };

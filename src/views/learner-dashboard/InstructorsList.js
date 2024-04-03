@@ -26,7 +26,7 @@ const InstructorsList = () => {
 
   const handleScheduleMeeting = async (insId) => {
     try {
-      const URL = "/learner/schedule-meeting";
+      const URL = "/meeting/schedule-meeting";
       const data = {
         learnerId: isUser?.id,
         instructorId: insId,
@@ -42,7 +42,7 @@ const InstructorsList = () => {
 
   return (
     <div className="flex flex-wrap">
-      {instructors?.length > 0 ? (
+      {instructors?.length ? (
         instructors.map((item) => (
           <div
             className="max-w-sm rounded overflow-hidden shadow-lg m-5"
