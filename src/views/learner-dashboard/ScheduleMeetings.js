@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { formatDate } from "../../utils/commonFunc";
 
-const ScheduleMeetings = () => {
+export const ScheduledMeetings = () => {
   const [allScheduleMeetings, setAllScheduleMeetings] = useState([]);
 
   const getScheduleMeetings = async () => {
@@ -32,7 +32,10 @@ const ScheduleMeetings = () => {
           <div className="schedule-m" key={item?.id}>
             <div className="flex justify-between items-center">
               <div className="font-serif ml-4">
-                <h4> Accounting </h4>
+                <h4 className="capitalize">
+                  {" "}
+                  {JSON.parse(item?.instructor?.AOE).join(", ")}{" "}
+                </h4>
                 <h5>
                   {" "}
                   With Mr.
@@ -64,5 +67,3 @@ const ScheduleMeetings = () => {
     </div>
   );
 };
-
-export default ScheduleMeetings;

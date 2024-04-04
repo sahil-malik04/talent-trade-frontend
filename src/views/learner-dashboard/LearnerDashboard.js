@@ -1,24 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { LearnerSidebar } from "./LearnerSidebar";
-import InstructorsList from "./InstructorsList";
-import ScheduleMeetings from "./ScheduleMeetings";
+import { Outlet } from "react-router-dom";
 
 export const LearnerDashboard = () => {
-  const [selectedOption, setSelectedOption] = useState(1);
   return (
     <>
       <div className="flex">
-        <LearnerSidebar setSelectedOption={setSelectedOption} />
-
-        {selectedOption === 1 ? (
-          <div>Dashboard</div>
-        ) : selectedOption === 2 ? (
-          <InstructorsList />
-        ) : selectedOption === 3 ? (
-          <ScheduleMeetings />
-        ) : (
-          ""
-        )}
+        <LearnerSidebar />
+        <Outlet />
       </div>
     </>
   );

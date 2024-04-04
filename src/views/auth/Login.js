@@ -36,7 +36,7 @@ export const Login = () => {
           if (userData?.role === 1) {
             navigate("/dashboard/instructor");
           } else {
-            navigate("/dashboard/learner");
+            navigate("/dashboard/st");
           }
         }
       } catch (err) {

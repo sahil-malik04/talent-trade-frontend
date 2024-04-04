@@ -25,7 +25,7 @@ export const Home = () => {
                     isUser
                       ? isUser?.role === 1
                         ? "/dashboard/instructor"
-                        : "/dashboard/learner"
+                        : "/dashboard/st"
                       : "/create-account"
                   )
                 }

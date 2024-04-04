@@ -33,7 +33,7 @@ const InstructorsList = () => {
       };
       const result = await axios.post(URL, data);
       if (result.status === 200) {
-        toast.success(result?.data?.message)
+        toast.success(result?.data?.message);
       }
     } catch (err) {
       toast.error(err?.response?.data?.message);
@@ -54,7 +54,10 @@ const InstructorsList = () => {
                 {item?.firstName + " " + item?.lastName}
               </div>
               <p className="text-gray-700 text-base">
-                Expertise: {JSON.parse(item?.AOE).join(", ")}
+                Expertise:{" "}
+                <span className="capitalize">
+                  {JSON.parse(item?.AOE).join(", ")}
+                </span>
               </p>
               <p className="text-gray-700 text-base">
                 Usually available:{" "}
