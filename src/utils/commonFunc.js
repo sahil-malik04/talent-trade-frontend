@@ -21,4 +21,38 @@ const formatDate = (item) => {
   return date.toLocaleString();
 };
 
-export { encryptData, getSelectedValue, GetError, formatDate };
+const timeOptions = () => {
+  const options = [];
+  for (let hour = 0; hour < 24; hour++) {
+    let hourString = hour.toString().padStart(2, "0");
+    options.push({ value: hourString + ":00", label: hourString + ":00" });
+  }
+  return options;
+};
+
+const convertToAMPM = (time) => {
+  if (time) {
+    if (time === "24:00") {
+      return "12:00 AM";
+    }
+    const [hours, minutes] = time?.split(":");
+    let period = "AM";
+
+    let hours12 = parseInt(hours);
+    if (hours12 >= 12) {
+      period = "PM";
+      hours12 -= 12;
+    }
+
+    return `${hours12}:${minutes.padStart(2, "0")} ${period}`;
+  }
+};
+
+export {
+  encryptData,
+  getSelectedValue,
+  GetError,
+  formatDate,
+  timeOptions,
+  convertToAMPM,
+};

@@ -1,13 +1,7 @@
 import Select from "react-select";
 import { ThemeBtn } from "../../../components/ThemeButton";
 import { branchOptions, industryOptions } from "../../../../utils/dataUtility";
-import { GetError } from "../../../../utils/commonFunc";
-
-const timeOptions = [];
-for (let hour = 0; hour < 24; hour++) {
-  let hourString = hour.toString().padStart(2, "0");
-  timeOptions.push({ value: hourString + ":00", label: hourString + ":00" });
-}
+import { GetError, timeOptions } from "../../../../utils/commonFunc";
 
 export const CreateAsLearnerS2 = ({
   setIsCompleted,
@@ -113,7 +107,7 @@ export const CreateAsLearnerS2 = ({
                 <div className="grid grid-cols-12 gap-4 ">
                   <div className="col-span-6">
                     <Select
-                      options={timeOptions}
+                      options={timeOptions()}
                       placeholder={"From"}
                       id="from"
                       name="from"
@@ -130,7 +124,7 @@ export const CreateAsLearnerS2 = ({
                   </div>
                   <div className="col-span-6">
                     <Select
-                      options={timeOptions}
+                      options={timeOptions()}
                       placeholder={"To"}
                       id="to"
                       name="to"

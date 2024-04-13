@@ -10,7 +10,7 @@ export const ScheduledMeetings = () => {
 
   const getScheduleMeetings = async () => {
     try {
-      const URL = "/meeting/get-schedule-meetings";
+      const URL = "/meeting/get-scheduled-meetings";
       const result = await axios.get(URL);
       if (result?.status === 200) {
         setAllScheduleMeetings(result?.data?.data);

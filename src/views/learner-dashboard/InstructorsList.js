@@ -2,13 +2,14 @@ import { Button } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { stDashboard } from "../../utils/dataUtility";
 
 const InstructorsList = () => {
-  const isUser = useSelector((state) => state.auth.user);
+  const navigate = useNavigate();
 
   const [instructors, setInstructors] = useState([]);
-  const getInstructos = async () => {
+  const getInstructors = async () => {
     try {
       const URL = "/instructor/get-instructors";
       const result = await axios.get(URL);
@@ -21,22 +22,12 @@ const InstructorsList = () => {
   };
 
   useEffect(() => {
-    getInstructos();
+    getInstructors();
   }, []);
 
-  const handleScheduleMeeting = async (insId) => {
-    try {
-      const URL = "/meeting/schedule-meeting";
-      const data = {
-        learnerId: isUser?.id,
-        instructorId: insId,
-      };
-      const result = await axios.post(URL, data);
-      if (result.status === 200) {
-        toast.success(result?.data?.message);
-      }
-    } catch (err) {
-      toast.error(err?.response?.data?.message);
+  const handleScheduleMeeting = async (insName, insId) => {
+    if (insId) {
+      navigate(`${stDashboard}/schedule-a-meeting/${insName}/${insId}`);
     }
   };
 
@@ -48,7 +39,17 @@ const InstructorsList = () => {
             className="max-w-sm rounded overflow-hidden shadow-lg m-5"
             key={item?.id}
           >
-            <img className="h-40" src={item?.picture} alt="instructor" />
+            <img
+              className="h-40 ml-auto mr-auto"
+              src={
+                item?.picture
+                  ? item?.picture
+                  : item?.gender === "male"
+                  ? "/assets/images/user_m_img.png"
+                  : "/assets/images/user_f_img.png"
+              }
+              alt="instructor"
+            />
             <div className="px-6 py-4">
               <div className="font-bold text-xl mb-2">
                 {item?.firstName + " " + item?.lastName}
@@ -69,10 +70,10 @@ const InstructorsList = () => {
                 variant="outlined"
                 size="small"
                 style={{ fontWeight: "bold" }}
-                onClick={() => handleScheduleMeeting(item?.id)}
+                onClick={() => handleScheduleMeeting(item?.firstName, item?.id)}
               >
                 {" "}
-                Schedule a meeting
+                Check Availability
               </Button>
             </div>
           </div>

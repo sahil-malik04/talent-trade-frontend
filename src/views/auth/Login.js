@@ -8,6 +8,7 @@ import { GetError, encryptData } from "../../utils/commonFunc";
 import { loginFormSchema } from "./FieldsValidation";
 import { useDispatch } from "react-redux";
 import { assignUser } from "../../store/reducers/userSlice";
+import { stDashboard } from "../../utils/dataUtility";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ export const Login = () => {
           if (userData?.role === 1) {
             navigate("/dashboard/instructor");
           } else {
-            navigate("/dashboard/st");
+            navigate(stDashboard);
           }
         }
       } catch (err) {

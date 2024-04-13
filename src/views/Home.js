@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { ThemeBtn } from "./components/ThemeButton";
-import { topFeatures } from "../utils/dataUtility";
+import { stDashboard, topFeatures } from "../utils/dataUtility";
 import { useSelector } from "react-redux";
 
 export const Home = () => {
@@ -25,7 +25,7 @@ export const Home = () => {
                     isUser
                       ? isUser?.role === 1
                         ? "/dashboard/instructor"
-                        : "/dashboard/st"
+                        : stDashboard
                       : "/create-account"
                   )
                 }

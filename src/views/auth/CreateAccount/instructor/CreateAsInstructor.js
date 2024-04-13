@@ -22,6 +22,9 @@ export const CreateAsInstructor = () => {
     YOE: "",
     industry: [],
     AOE: [],
+    from: "",
+    to: "",
+    HC: "",
   };
 
   const {
