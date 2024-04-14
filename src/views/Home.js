@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { ThemeBtn } from "./components/ThemeButton";
-import { lnrDashboard, topFeatures } from "../utils/dataUtility";
+import { insDashboard, lnrDashboard, topFeatures } from "../utils/dataUtility";
 import { useSelector } from "react-redux";
 
 export const Home = () => {
@@ -24,7 +24,7 @@ export const Home = () => {
                   navigate(
                     isUser
                       ? isUser?.role === 1
-                        ? "/dashboard/instructor"
+                        ? insDashboard
                         : lnrDashboard
                       : "/create-account"
                   )

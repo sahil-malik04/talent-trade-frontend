@@ -1,5 +1,5 @@
 import React from "react";
-import { learnerSidebarOptions } from "../../utils/dataUtility";
+import { lnrSidebarOptions } from "../../utils/dataUtility";
 import { useNavigate } from "react-router-dom";
 
 export const LearnerSidebar = () => {
@@ -7,7 +7,7 @@ export const LearnerSidebar = () => {
   return (
     <div className="bg-peacockblue-100 sidebar">
       <ul>
-        {learnerSidebarOptions?.map((item) => (
+        {lnrSidebarOptions?.map((item) => (
           <li
             className="mb-2 shadow-lg"
             key={item?.id}

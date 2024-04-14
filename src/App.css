@@ -83,6 +83,38 @@
   margin: 0.5rem;
   width: 60rem;
   box-shadow: 2px #016795;
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   padding: 10px;
+}
+
+.ins_sidebar {
+  width: 30rem;
+  max-width: 15rem;
+  height: auto;
+}
+.ins_sidebar > ul {
+  padding: 0px 5px 5px 5px;
+}
+
+.ins_sidebar > ul > li {
+  color: rgb(235, 232, 232);;
+  padding: 0.7rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+.active_ins_sidebar {
+  background: rgb(235, 232, 232);
+  color: rgb(0, 0, 0) !important;
+}
+.ins_sidebar > ul > li:hover {
+  transition: 0.1s;
+  background: rgb(235, 232, 232);
+  color: rgb(0, 0, 0) !important;
+}
+
+.ins_sidebar > ul > li > span {
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }

@@ -1,8 +1,13 @@
 import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
 import CastForEducationIcon from "@mui/icons-material/CastForEducation";
 import StarsIcon from "@mui/icons-material/Stars";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import AddModeratorIcon from "@mui/icons-material/AddModerator";
+import GroupsIcon from "@mui/icons-material/Groups";
+import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
 
 export const lnrDashboard = "/dashboard/lnr";
+export const insDashboard = "/dashboard/ins";
 
 export const branchOptions = [
   { value: "accounting", label: "C" },
@@ -53,7 +58,7 @@ export const topFeatures = [
   },
 ];
 
-export const learnerSidebarOptions = [
+export const lnrSidebarOptions = [
   {
     id: 1,
     title: "Dashboard",
@@ -66,7 +71,7 @@ export const learnerSidebarOptions = [
   },
   {
     id: 3,
-    title: "Schedule Meetings",
+    title: "Scheduled Meetings",
     link: `${lnrDashboard}/scheduled-meetings`,
   },
   {
@@ -76,3 +81,29 @@ export const learnerSidebarOptions = [
   },
 ];
 
+export const insSidebarOptions = [
+  {
+    id: 1,
+    title: "Dashboard",
+    link: insDashboard,
+    icon: <DashboardIcon />,
+  },
+  {
+    id: 2,
+    title: "Requests",
+    link: `${insDashboard}`,
+    icon: <AddModeratorIcon />,
+  },
+  {
+    id: 3,
+    title: "Scheduled Meetings",
+    link: `${insDashboard}`,
+    icon: <GroupsIcon />,
+  },
+  {
+    id: 4,
+    title: "Organize Workshop",
+    link: `${insDashboard}`,
+    icon: <LibraryAddIcon />,
+  },
+];

@@ -1,11 +1,9 @@
 import React from "react";
 
-const DashboardContent = () => {
+export const LearnerDashboardTab = () => {
   return (
     <div className="w-full flex justify-around">
       <div>Dashboard</div>
     </div>
   );
 };
-
-export default DashboardContent;

@@ -8,7 +8,7 @@ import { GetError, encryptData } from "../../utils/commonFunc";
 import { loginFormSchema } from "./FieldsValidation";
 import { useDispatch } from "react-redux";
 import { assignUser } from "../../store/reducers/userSlice";
-import { lnrDashboard } from "../../utils/dataUtility";
+import { insDashboard, lnrDashboard } from "../../utils/dataUtility";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ export const Login = () => {
           const userData = result.data?.data;
           dispatch(assignUser(userData));
           if (userData?.role === 1) {
-            navigate("/dashboard/instructor");
+            navigate(insDashboard);
           } else {
             navigate(lnrDashboard);
           }
