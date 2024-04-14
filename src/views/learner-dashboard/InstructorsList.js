@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { stDashboard } from "../../utils/dataUtility";
+import { lnrDashboard } from "../../utils/dataUtility";
 
 const InstructorsList = () => {
   const navigate = useNavigate();
@@ -27,16 +27,16 @@ const InstructorsList = () => {
 
   const handleScheduleMeeting = async (insName, insId) => {
     if (insId) {
-      navigate(`${stDashboard}/schedule-a-meeting/${insName}/${insId}`);
+      navigate(`${lnrDashboard}/schedule-a-meeting/${insName}/${insId}`);
     }
   };
 
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap m-5">
       {instructors?.length ? (
         instructors.map((item) => (
           <div
-            className="max-w-sm rounded overflow-hidden shadow-lg m-5"
+            className="max-w-sm rounded overflow-hidden shadow-lg m-2"
             key={item?.id}
           >
             <img

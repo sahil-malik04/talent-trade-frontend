@@ -53,11 +53,11 @@ const ScheduleAMeeting = () => {
     }
   };
   return (
-    <div className="rounded overflow-hidden m-5">
+    <div className="rounded overflow-hidden m-5 w-full">
       <h2 className="font-bold text-base mb-5 ">
         Scheduled a Meeting with Mr. {instructorName}
       </h2>
-      <div className="ml-20 pt-6 pb-12  flex gap-40">
+      <div className="pt-6 pb-12  flex justify-around">
         <Calendar onChange={onChangeDate} value={dateValue} />
 
         <div>

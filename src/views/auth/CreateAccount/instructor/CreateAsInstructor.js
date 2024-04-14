@@ -72,9 +72,9 @@ export const CreateAsInstructor = () => {
       <div className="h-screen flex justify-evenly mt-12">
         <div className="mr-14">
           <img
-            src="/assets/images/teacher_banner.png"
+            src="/assets/images/ins_banner.png"
             style={{ height: "28rem" }}
-            alt="teacher-banner"
+            alt="ins-banner"
           />
         </div>
         <div>

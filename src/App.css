@@ -80,7 +80,7 @@
 
 .schedule-m > div {
   background: rgb(172, 216, 237);
-  margin: 5px;
+  margin: 0.5rem;
   width: 60rem;
   box-shadow: 2px #016795;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);

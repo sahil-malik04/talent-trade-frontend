@@ -1,13 +1,14 @@
 import InstructorsList from "../views/learner-dashboard/InstructorsList";
-import { ScheduledMeetings } from "../views/learner-dashboard/ScheduleMeetings";
+import { ScheduledMeetings } from "../views/learner-dashboard/ScheduledMeetings";
 import { LearnerDashboard } from "../views/learner-dashboard/LearnerDashboard";
 import DashboardContent from "../views/learner-dashboard/DashboardContent";
 import ScheduleAMeeting from "../views/learner-dashboard/ScheduleAMeeting";
-import { stDashboard } from "../utils/dataUtility";
+import { lnrDashboard } from "../utils/dataUtility";
+import Workshops from "../views/learner-dashboard/Workshops";
 
 export const DashboardRoutes = [
   {
-    path: stDashboard,
+    path: lnrDashboard,
     element: <LearnerDashboard />,
     children: [
       { path: "", element: <DashboardContent /> },
@@ -17,6 +18,7 @@ export const DashboardRoutes = [
         element: <ScheduleAMeeting />,
       },
       { path: "scheduled-meetings", element: <ScheduledMeetings /> },
+      { path: "workshops", element: <Workshops /> },
     ],
   },
 ];

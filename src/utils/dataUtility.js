@@ -2,7 +2,7 @@ import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
 import CastForEducationIcon from "@mui/icons-material/CastForEducation";
 import StarsIcon from "@mui/icons-material/Stars";
 
-export const stDashboard = "/dashboard/lnr";
+export const lnrDashboard = "/dashboard/lnr";
 
 export const branchOptions = [
   { value: "accounting", label: "C" },
@@ -57,17 +57,22 @@ export const learnerSidebarOptions = [
   {
     id: 1,
     title: "Dashboard",
-    link: stDashboard,
+    link: lnrDashboard,
   },
   {
     id: 2,
     title: "Instructors",
-    link: `${stDashboard}/instructors`,
+    link: `${lnrDashboard}/instructors`,
   },
   {
     id: 3,
     title: "Schedule Meetings",
-    link: `${stDashboard}/scheduled-meetings`,
+    link: `${lnrDashboard}/scheduled-meetings`,
+  },
+  {
+    id: 4,
+    title: "Workshops",
+    link: `${lnrDashboard}/workshops`,
   },
 ];
 
