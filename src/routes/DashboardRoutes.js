@@ -7,6 +7,8 @@ import { insDashboard, lnrDashboard } from "../utils/dataUtility";
 import Workshops from "../views/learner-dashboard/Workshops";
 import { InstructorDashboard } from "../views/instructor-dashboard/InstructorDashboard";
 import { InstructorDashboardTab } from "../views/instructor-dashboard/InstructorDashboardTab";
+import { OrganizeWorkshop } from "../views/instructor-dashboard/organize-workshop/OrganizeWorkshop";
+
 
 export const DashboardRoutes = [
   {
@@ -26,6 +28,9 @@ export const DashboardRoutes = [
   {
     path: insDashboard,
     element: <InstructorDashboard />,
-    children: [{ path: "", element: <InstructorDashboardTab /> }],
+    children: [
+      { path: "", element: <InstructorDashboardTab /> },
+      { path: "organize-workshop", element: <OrganizeWorkshop /> },
+    ],
   },
 ];

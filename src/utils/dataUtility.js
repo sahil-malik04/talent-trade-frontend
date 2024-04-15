@@ -103,7 +103,7 @@ export const insSidebarOptions = [
   {
     id: 4,
     title: "Organize Workshop",
-    link: `${insDashboard}`,
+    link: `${insDashboard}/organize-workshop`,
     icon: <LibraryAddIcon />,
   },
 ];

@@ -48,6 +48,16 @@ const convertToAMPM = (time) => {
   }
 };
 
+const generateTimeOptions = () => {
+  let timeOptions = [];
+  for (let i = 0; i < 24; i++) {
+    let startHour = String(i).padStart(2, '0');
+    let timeRange = `${startHour}:00`;
+    timeOptions.push(timeRange);
+  }
+  return timeOptions;
+}
+
 export {
   encryptData,
   getSelectedValue,
@@ -55,4 +65,5 @@ export {
   formatDate,
   timeOptions,
   convertToAMPM,
+  generateTimeOptions
 };
