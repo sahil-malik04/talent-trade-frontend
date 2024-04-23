@@ -8,6 +8,7 @@ import Workshops from "../views/learner-dashboard/Workshops";
 import { InstructorDashboard } from "../views/instructor-dashboard/InstructorDashboard";
 import { InstructorDashboardTab } from "../views/instructor-dashboard/InstructorDashboardTab";
 import { OrganizeWorkshop } from "../views/instructor-dashboard/organize-workshop/OrganizeWorkshop";
+import LearnerRequests from "../views/instructor-dashboard/requests/LearnerRequests";
 
 
 export const DashboardRoutes = [
@@ -31,6 +32,7 @@ export const DashboardRoutes = [
     children: [
       { path: "", element: <InstructorDashboardTab /> },
       { path: "organize-workshop", element: <OrganizeWorkshop /> },
+      { path: "learner-dashboard", element: <LearnerRequests /> },
     ],
   },
 ];

@@ -91,7 +91,7 @@ export const insSidebarOptions = [
   {
     id: 2,
     title: "Requests",
-    link: `${insDashboard}`,
+    link: `${insDashboard}/learner-dashboard`,
     icon: <AddModeratorIcon />,
   },
   {
